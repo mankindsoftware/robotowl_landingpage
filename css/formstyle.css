@@ -152,71 +152,23 @@ margin: 0;
 padding: 0;
 }
 
-ul.social
-{
-width: 120px;
-margin: 80px auto 0;
-height: 20px;
+@-webkit-keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: white }
 }
 
-ul.social li{
-float: left;
-background: url(../images/social.png) left top no-repeat;
-position: relative;
-height: 20px;
-margin-right: 16px;
+@-moz-keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: white }
 }
 
-ul.social li a{
-display: block;
-width: 18px;
-height: 20px;
-}
-
-
-ul.social li.pinterest{
-height: 20px;
-background-position: 0 0;
-width: 18px;
-}
-
-ul.social li.pinterest:hover{
-background-position: 0 -20px;
-}
-
-
-
-ul.social li.instagram{
-height: 20px;
-background-position: -34px 0;
-width: 18px;
-}
-
-ul.social li.instagram:hover{
-background-position: -34px -20px;
-}
-
-
-
-ul.social li.twitter{
-height: 20px;
-background-position: -68px 0;
-width: 18px;
-}
-
-ul.social li.twitter:hover{
-background-position: -68px -20px;
-}
-
-
-
-ul.social li.facebook{
-height: 20px;
-background-position: -102px 0;
-width: 18px;
-margin-right: 0;
-}
-
-ul.social li.facebook:hover{
-background-position: -102px -20px;
+div.cursor {
+    width:5px;
+    height:30px;
+    border-left:4px solid white;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    position: relative;
+    top: 40px;
+    left:3px;
 }

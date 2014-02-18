@@ -6,7 +6,7 @@ if(isset($_POST['submitted'])) {
 		
 	// upon no failure errors let's email now!
 	if(!isset($hasError)) {
-		
+		$email = trim($_POST['email']);
 		$emailTo = 'kelly@robotowl.com';
 		$subject = 'Submitted message from '.$email;
 		$sendCopy = trim($_POST['sendCopy']);
@@ -14,14 +14,13 @@ if(isset($_POST['submitted'])) {
 		$headers = 'From: ' .' <'.$email.'>' . "\r\n" . 'Reply-To: ' . $email;
 
 		mail($emailTo, $subject, $headers);
-        
         // set our boolean completion value to TRUE
 		$emailSent = true;
 	}
 }
 ?>
 <!DOCTYPE html>
-<html xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en" lang="en"> 
+<html xml:lang="en" lang="en"> 
 <head> 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <link href="../css/formstyle.css" rel="stylesheet" type="text/css" />
@@ -30,12 +29,11 @@ if(isset($_POST['submitted'])) {
 <body>
     <!-- @begin contact -->
 	<div id="contact" class="section">
-		<div class="container content">
-
+			<div class="container content">
 					<form id="contact-us" action="contact.php" method="post">
 						<div class="formblock">
 							<label class="screen-reader-text"></label>
-							<input type="email" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="requiredField email field" placeholder="type email address:" />
+							<input type="email" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="requiredField email field cursor" placeholder="enter email address:" />
 							<?php if($emailError != '') { ?>
 								class="error"><?php echo $emailError;?>
 							<?php } ?>
