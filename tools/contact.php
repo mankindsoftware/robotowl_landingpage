@@ -7,7 +7,7 @@ if(isset($_POST['submitted'])) {
 	// upon no failure errors let's email now!
 	if(!isset($hasError)) {
 		$email = trim($_POST['email']);
-		$emailTo = 'kelly@robotowl.com';
+		$emailTo = 'hoot@robotowl.com';
 		$subject = 'Submitted message from '.$email;
 		$sendCopy = trim($_POST['sendCopy']);
 		$body = "Email: $email";
@@ -33,7 +33,7 @@ if(isset($_POST['submitted'])) {
 					<form id="contact-us" action="contact.php" method="post">
 						<div class="formblock">
 							<label class="screen-reader-text"></label>
-							<input type="email" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="requiredField email field cursor" placeholder="enter email address:" />
+							<input type="email" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="requiredField email field cursor" placeholder="your@email.com" />
 							<?php if($emailError != '') { ?>
 								class="error"><?php echo $emailError;?>
 							<?php } ?>
