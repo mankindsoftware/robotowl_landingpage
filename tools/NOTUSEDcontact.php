@@ -12,7 +12,6 @@ if(isset($_POST['submitted'])) {
 		$sendCopy = trim($_POST['sendCopy']);
 		$body = "Email: $email";
 		$headers = 'From: ' .' <'.$email.'>' . "\r\n" . 'Reply-To: ' . $email;
-
 		mail($emailTo, $subject, $headers);
         // set our boolean completion value to TRUE
 		$emailSent = true;
