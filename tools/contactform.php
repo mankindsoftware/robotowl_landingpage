@@ -4,7 +4,7 @@
   <style>
     #loading, #success{display: none}
   </style>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <link href="../css/formstyle.css" rel="stylesheet" type="text/css" />
   <script>
     $(function(){
@@ -39,7 +39,7 @@
 
 <body>
   <form method='post' action='../tools/mailer.php'>
-    <input class="email field" placeholder="your@email.com" name='email' type='email'><br>
+    <input id="Search" class="email field" name='email' type='email'><br>
     <input type='submit' class="submit subbutton" value="">
   </form>
   <div id="loading">
@@ -47,5 +47,30 @@
   </div>
   <div id="success">
   </div>
+  <script>
+var setSearchText = 1;
+setDefaultText = function(){
+  setSearchText = 1;
+  var SearchInput = $('#Search');
+  SearchInput.val('your@email.com ');
+  var strLength= SearchInput.val().length;
+  SearchInput.focus();
+  SearchInput[0].setSelectionRange(strLength, strLength);
+}
+
+$("#Search").on('keydown', function(){
+  if(setSearchText == 1){
+    $('#Search').val('');
+    $('#pressEnter').fadeOut()
+  }
+  setSearchText = 0;
+});
+$("#Search").on('keyup', function(){
+  if($('#Search').val() == "" && setSearchText == 0){
+    setDefaultText();
+  }
+});
+setDefaultText();
+</script>
 </body>
 </html>
