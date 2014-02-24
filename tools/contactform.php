@@ -27,7 +27,7 @@
                 $("#loading").fadeOut(function(){
                   //Display the "success" message
                   $("#success").text(data).fadeIn(function(){
-                    window.setTimeout(function(){location.reload()},1800)
+                    window.setTimeout(function(){location.reload()},2000)
                   })
                 });
               }
@@ -70,7 +70,7 @@ $("#email").on('keydown', function(){
   if(setemailText == 1){
     $('#email').val('');
   }
-  if($("#email").val().length > 1){
+  if($("#email").val().length > 0){
     $('#pressEnter').fadeIn()
   }
   setemailText = 0;
