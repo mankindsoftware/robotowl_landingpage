@@ -26,7 +26,9 @@
                 //Hide the "loading" message
                 $("#loading").fadeOut(function(){
                   //Display the "success" message
-                  $("#success").text(data).fadeIn();
+                  $("#success").text(data).fadeIn(function(){
+                    window.setTimeout(function(){location.reload()},1800)
+                  })
                 });
               }
             });
@@ -39,34 +41,42 @@
 
 <body>
   <form method='post' action='../tools/mailer.php'>
-    <input id="Search" class="email field" name='email' type='email'><br>
-    <input type='submit' class="submit subbutton" value="">
+    <input id="email" class="email field" name='email' type='email'><br>
+    <div class="press_enter" id="pressEnter"><p class="big_text">press enter to submit</p></div>
   </form>
   <div id="loading">
-    Sending...
+    submitting...
   </div>
   <div id="success">
   </div>
   <script>
-var setSearchText = 1;
+
+$('#pressEnter').hide()
+$('#email').hide()
+$('#email').fadeIn()
+
+var setemailText = 1;
 setDefaultText = function(){
-  setSearchText = 1;
-  var SearchInput = $('#Search');
-  SearchInput.val('your@email.com ');
-  var strLength= SearchInput.val().length;
-  SearchInput.focus();
-  SearchInput[0].setSelectionRange(strLength, strLength);
+  setemailText = 1;
+  var emailInput = $('#email');
+  emailInput.val('type your email adress here ');
+  var strLength= emailInput.val().length;
+  emailInput.focus();
+  emailInput[0].setSelectionRange(strLength, strLength);
+  $('#pressEnter').fadeOut()
 }
 
-$("#Search").on('keydown', function(){
-  if(setSearchText == 1){
-    $('#Search').val('');
-    $('#pressEnter').fadeOut()
+$("#email").on('keydown', function(){
+  if(setemailText == 1){
+    $('#email').val('');
   }
-  setSearchText = 0;
+  if($("#email").val().length > 1){
+    $('#pressEnter').fadeIn()
+  }
+  setemailText = 0;
 });
-$("#Search").on('keyup', function(){
-  if($('#Search').val() == "" && setSearchText == 0){
+$("#email").on('keyup', function(){
+  if($('#email').val() == "" && setemailText == 0){
     setDefaultText();
   }
 });
