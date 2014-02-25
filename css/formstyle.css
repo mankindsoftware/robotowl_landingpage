@@ -110,11 +110,12 @@ background: none;
 width: 485px;
 height: 24px;
 float: left;
+outline: none;
 }
 
 
 .field{
-width: 465px;
+width: 285px;
 outline: none;
 border: none;
 background: none;
@@ -146,7 +147,7 @@ background: url(../images/okay.png) left bottom no-repeat;
 .press_enter{
 position: relative;
 bottom:10px;
-right:40px;
+left:10px;
 }
 
 .clear{

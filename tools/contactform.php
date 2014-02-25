@@ -42,7 +42,7 @@
 <body>
   <form method='post' action='../tools/mailer.php'>
     <input id="email" class="email field" name='email' type='email'><br>
-    <div class="press_enter" id="pressEnter"><p class="big_text">press enter to submit</p></div>
+    <div class="press_enter" id="pressEnter"><p class="big_text">hit enter to submit</p></div>
   </form>
   <div id="loading">
     submitting...
